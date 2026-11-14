@@ -6,6 +6,7 @@ use Illuminate\Contracts\Database\Eloquent\Castable;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 /**
  * Cast an attribute as a validated model class name.
@@ -103,8 +104,10 @@ class AsModelClass implements Castable
                     sprintf('Class or interface [%s] does not exist.', $className)
                 );
 
+                $modelClass = Relation::getMorphedModel($value) ?? $value;
+
                 throw_unless(
-                    is_a($value, $className, true),
+                    is_a($modelClass, $className, true),
                     InvalidArgumentException::class,
                     sprintf('Class [%s] must implement [%s] or extend it.', $value, $className)
                 );
