@@ -109,7 +109,7 @@ class AsModelClass implements Castable
                 throw_unless(
                     is_a($modelClass, $className, true),
                     InvalidArgumentException::class,
-                    sprintf('Class [%s] must implement [%s] or extend it.', $value, $className)
+                    sprintf('Class [%s] must implement [%s] or extend it.', $modelClass, $className)
                 );
             }
         };
