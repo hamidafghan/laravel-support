@@ -5,8 +5,8 @@ namespace Jenishev\Laravel\Support\Eloquent\Casts;
 use Illuminate\Contracts\Database\Eloquent\Castable;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
-use InvalidArgumentException;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use InvalidArgumentException;
 
 /**
  * Cast an attribute as a validated model class name.
